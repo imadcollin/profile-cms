@@ -1,22 +1,52 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import { graphql } from "gatsby"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+class IndexPage extends React.Component {
+  render() {
+    const projects = this.props.data.allContentfulProjects.edges
+    const siteTitle = this.props.data.site.siteMetadata.title
+    return (
+      <Layout>
+        <SEO title={siteTitle} />
+        {projects.map(({ node }) => {
+          return <Project key={node.id} node={node}></Project>
+        })}
+      </Layout>
+    )
+  }
+}
+
+const Project = ({ node }) => {
+  return (
+    <div>
+      <h1>{node.title} </h1>
+      <h5>
+        {node.title}- {node.keywords}
+      </h5>
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
-
+  )
+}
 export default IndexPage
+
+export const query = graphql`
+  query pageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allContentfulProjects {
+      edges {
+        node {
+          id
+          title
+          keywords
+          slug
+          status
+        }
+      }
+    }
+  }
+`
