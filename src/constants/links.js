@@ -18,6 +18,11 @@ const Links = () => {
       url: "/contributors/",
       text: "contributors",
     },
+    {
+      id: 4,
+      url: "/blog/",
+      text: "blog",
+    },
   ]
   return (
     <div>
