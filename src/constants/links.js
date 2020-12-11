@@ -23,6 +23,11 @@ const Links = () => {
       url: "/blog/",
       text: "blog",
     },
+    {
+      id: 5,
+      url: "/about/",
+      text: "about",
+    },
   ]
   return (
     <div>
