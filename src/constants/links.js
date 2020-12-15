@@ -10,13 +10,13 @@ const Links = () => {
     },
     {
       id: 2,
-      url: "/projects/",
-      text: "projects",
+      url: "/projectsJson/",
+      text: "projectsJson",
     },
     {
       id: 3,
-      url: "/contributors/",
-      text: "contributors",
+      url: "/project/",
+      text: "project-md",
     },
     {
       id: 4,
