@@ -1,29 +1,33 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from '../components/layout';
 
 export default function Blog({ data }) {
-  const { posts } = data.firstBlog
+  const { blogs } = data.firstBlog
 
   return (
-    <div>
-      <h1>First posts</h1>
+    <Layout>
 
-      {posts.map(post => (
-        <article key={post.id}>
+    <div>
+      <h1>Blogs</h1>
+
+      {blogs.map(blog => (
+        <article key={blog.id}>
           <small>
-            {post.frontmatter.author}, {post.frontmatter.date}
+            {blog.frontmatter.author}, {blog.frontmatter.date}
           </small>
-          <p>{post.excerpt}</p>
+          <p>{blog.excerpt}</p>
         </article>
       ))}
     </div>
+      </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query MyQuery {
     firstBlog: allMarkdownRemark {
-      posts: nodes {
+      blogs: nodes {
         frontmatter {
           date(fromNow: true)
           title
