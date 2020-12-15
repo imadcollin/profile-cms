@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Img from 'gatsby-image';
 
 const ProjectsPage = ({ data }) => (
   <Layout>
@@ -17,8 +16,6 @@ const ProjectsPage = ({ data }) => (
         <div key={project.node.id} >
             {console.log(project)}
           <div>
-          {/* <Img fluid={project.node.thumbnailImage.childImageSharp.fluid} /> */}
-
           </div>
           <div >
             <h2>{project.node.title}</h2>

@@ -1,10 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
-
+import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
-import Links from "../constants/links"
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -26,7 +24,6 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <Links> </Links>
         <main>{children}</main>
       </div>
     </>
